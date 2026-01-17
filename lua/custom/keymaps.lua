@@ -97,7 +97,7 @@ vim.keymap.set('i', '<C-c>', '<Esc>')
 vim.keymap.set('n', 'Q', '<nop>')
 
 -- Run a tmux command to open session switcher (Primagen-specific)
-vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
+vim.keymap.set('n', '<C-t>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
 
 -- Format current buffer using LSP (Language Server Protocol)
 vim.keymap.set('n', '<leader>f', function()
@@ -120,3 +120,21 @@ vim.keymap.set('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left>
 vim.keymap.set('n', 'dd', function()
   return vim.fn.getline '.' == '' and '"_dd' or 'dd'
 end, { expr = true, desc = "Smart dd: don't yank empty lines" })
+
+-- Stay in visual mode after indenting
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
+
+-- Remap for dealing with word wrap
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Create undo breakpoints for common punctuation
+vim.keymap.set('i', ',', ',<c-g>u')
+vim.keymap.set('i', '.', '.<c-g>u')
+vim.keymap.set('i', '!', '!<c-g>u')
+vim.keymap.set('i', '?', '?<c-g>u')
+
+-- Move between buffers (open files)
+vim.keymap.set('n', '[b', '<cmd>bprevious<CR>', { desc = 'Go to previous buffer' })
+vim.keymap.set('n', ']b', '<cmd>bnext<CR>', { desc = 'Go to next buffer' })

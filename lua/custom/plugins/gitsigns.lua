@@ -56,6 +56,8 @@ return
 
     -- Keymaps for toggles
     vim.keymap.set('n', '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<CR>', { desc = 'Toggle Git Blame' })
+    vim.keymap.set('n', '<leader>gd', '<cmd>Gitsigns diffthis<CR>', { desc = 'Git [D]iff Side-by-Side' })
+    vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_status, { desc = 'Git [S]tatus List' })
     --    vim.keymap.set('n', '<leader>gs', '<cmd>Gitsigns toggle_signs<CR>', { desc = 'Toggle Git Signs' })
     --    vim.keymap.set('n', '<leader>gw', '<cmd>Gitsigns toggle_word_diff<CR>', { desc = 'Toggle Word Diff' })
   end,

@@ -1,5 +1,5 @@
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -22,9 +22,9 @@ vim.o.showmode = false
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
-end)
+-- vim.schedule(function()
+--  vim.o.clipboard = 'unnamedplus'
+-- end)
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -98,3 +98,7 @@ vim.opt.termguicolors = true
 vim.opt.isfname:append '@-@'
 
 vim.opt.colorcolumn = '100'
+
+vim.opt.smoothscroll = true
+vim.opt.pumheight = 10
+vim.opt.hlsearch = true
